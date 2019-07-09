@@ -4,7 +4,7 @@
 |:--------:|:---------:
 | Recipe License         | [![License: LGPL](https://img.shields.io/badge/License-Bincrafters-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0.html)
 | Source License         | [![License: LGPL](https://img.shields.io/badge/License-LGPL-blue.svg)](http://www.gromacs.org/Developer_Zone/Programming_Guide/XTC_Library)
-| Linux Package Status   | [![Build Status](https://travis-ci.org/GavinNL/conan-xdrfile.svg?branch=master)](https://travis-ci.org/GavinNL/conan-xdrfile)|
+| Linux Package Status   | [![Build Status](https://travis-ci.org/GavinNL/conan-gromacs.svg?branch=master)](https://travis-ci.org/GavinNL/conan-gromacs)|
 
 ## Conan Information
 
@@ -25,14 +25,14 @@ pip3 install --user conan
 This recipe is not hosted on any conan repository such as conan-center or bincrafters and therefore must be built locally. To build the recipe, conan must be installed on your system
 
 ```
-git clone https://github.com/GavinNL/conan-xdrfile.git
-cd conan-xdrfile
+git clone https://github.com/GavinNL/conan-gromacs.git
+cd conan-gromacs
 conan create . gavinNL/testing
 ```
 
 ## Issues
 
-This recipe is not actively maintained. Any issues can be posted at https://github.com/GavinNL/conan-xdrfile/issues
+This recipe is not actively maintained. Any issues can be posted at https://github.com/GavinNL/conan-gromacs/issues
 
 Pull requests are appreciated.
 
