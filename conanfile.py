@@ -12,18 +12,14 @@ import os
 class gromacsConan(ConanFile):
     name = "gromacs"
     version = "2018.7"
-    sha256 = "ac18cbf4ae9a22a22516351f5b5ce01dbd8cf0f4faaf36523c6ed2539ed4dcff"
+    sha256 = "070fcd3e8a24e51479449aa2c823648d7161edb292431d841f2e67c1db6f36a2"
 
 
     homepage = "http://www.gromacs.org/"
 
-    ftp_address   = "ftp.gromacs.org"
+    url_file_path = "http://ftp.gromacs.org/pub/gromacs/gromacs-{0}.tar.gz".format(version)
     filename      = "gromacs-{0}.tar.gz".format(version)
-    ftp_file_path = "pub/gromacs/{}".format(filename)
 
-#    url_file_path = "ftp://ftp.gromacs.org/pub/contrib/xdrfile-1.1.4.tar.gz"
-#    url_file_path = "ftp://ftp.gromacs.org/pub/contrib/xdrfile-{0}.tar.gz".format(version)
-    #url_file_path = "{0}/archive/v{1}.tar.gz".format(homepage, version)
     generators = "cmake"
 
     license = "LGPL"
@@ -60,11 +56,7 @@ class gromacsConan(ConanFile):
             del self.options.fPIC
 
     def source(self):
-#        print("Downloading: " + self.url_file_path)
-        tools.ftp_download(self.ftp_address, self.ftp_file_path)
-#        tools.get(self.url_file_path, sha256=self.sha256)
-        #tools.check_sha256(self.file_name, self.sha256)
-        tools.untargz(self.filename)
+        tools.get(self.url_file_path, sha256=self.sha256)
         os.rename("gromacs-{0}".format(self.version), self._source_subfolder)
 
 
@@ -93,7 +85,7 @@ class gromacsConan(ConanFile):
 
     def package_info(self):
         if self.options.precision=="double":
-            self.cpp_info.libs = ["gromacs_d"]
+            self.cpp_info.libs = ["gromacs_d", "m", "dl"]
         else:
-            self.cpp_info.libs = ["gromacs"]
+            self.cpp_info.libs = ["gromacs", "m", "dl"]
         #self.env_info.ALSA_CONFIG_DIR = os.path.join(self.package_folder, "share", "alsa")
